@@ -1,9 +1,11 @@
 window.onload = function () {
     fetch('api_emprestimo.php')
-    .then(response => response.json())
+    .then(response => response.json())// converte os dados para json
         .then(item => {
+            // string para armazenamento de dasos no html
             let ListaEmprestimo = '<ul>';
             item.forEach(emprestimo => {
+                //abre lista
                 ListaEmprestimo += `
                 <li>
                     <h2>Empréstimo ${emprestimo.id}</h2>
@@ -16,8 +18,11 @@ window.onload = function () {
                 </li>
                 `;
             });
+            //fecha lista
             ListaEmprestimo += '</ul>';
-            document.getElementById('lista-emprestimos').innerHTML = ListaEmprestimo;
+
+            //incerção do codigo dentro do elemento com o id lista-emprestimos
+            document.getElementById('lista_emprestimos').innerHTML = ListaEmprestimo;
         })
         .catch(error => console.error('erro ao buscar os emprestimos', error));
 };
