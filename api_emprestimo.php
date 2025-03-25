@@ -1,11 +1,14 @@
 <?php
 header('Content-Type: application/json');
+//  reposta em json
 
 if ($_SERVER['REQUEST_METHOD'] != 'GET') {
     http_response_code(405);
     echo json_encode(["erro" => "Só é permitido o método GET"]);
     exit;
 }
+// para não aceitar outro metedo sem ser o Get
+
 
 
     $emprestimos = [
@@ -54,8 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
             'total_pago' => 10785.00,
             'total_juros' => 1785.00,
         ]
+
+    // prenchimento dos valores
 ];
 echo json_encode($emprestimos);
+//exibição dos dados em json
 
 
 
